@@ -1,7 +1,5 @@
 # encoding: UTF-8
 require "spec/rake/spectask"
-require "cucumber"
-require "cucumber/rake/task"
 
 begin
   require 'jeweler'
@@ -13,7 +11,6 @@ begin
     gem.homepage = "http://github.com/danielsdeleo/qusion"
     gem.authors = ["Dan DeLeo"]
     gem.add_development_dependency "rspec", ">= 0"
-    gem.add_development_dependency "cucumber", ">= 0"
     gem.add_development_dependency "yard", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
 
@@ -25,11 +22,6 @@ rescue LoadError
 end
 
 task :default => :spec
-
-desc "Run Cucumber Features"
-Cucumber::Rake::Task.new do |t|
-  t.cucumber_opts = "-c -n"
-end
 
 desc "Run all of the specs"
 Spec::Rake::SpecTask.new do |t|
